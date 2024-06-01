@@ -10,10 +10,10 @@
             <a class="nav-link active" aria-current="page" href="{{route('filieres.index')}}">Filieres</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('etudiants.index')}}">Etudiants</a>
+            <a class="nav-link active" href="{{route('etudiants.index')}}">Etudiants</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('livres.index')}}">Livres</a>
+            <a class="nav-link active" href="{{route('livres.index')}}">Livres</a>
           </li>
           {{-- <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>

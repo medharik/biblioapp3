@@ -1,10 +1,9 @@
 @extends('template')
 @section('titre')
-    Liste des filieres
+    Liste des etudiants
 @endsection
 @section('CreateRoute')
-    <a class="btn btn-primary col-4" href="{{ route('filieres.create') }}" role="button" aria-disabled="true">Creer nouvelle
-        filieres</a>
+<a class="btn btn-primary col-4" href="{{ route('etudiants.create')}}" role="button" aria-disabled="true">Creer nouvelle etudiant</a>
 @endsection
 @section('notice')
     {{ session('notice') }}
@@ -15,30 +14,30 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Filiere</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach ($filieres as $f)
+            @foreach ($etudiants as $etudiant)
                 <tr>
-                    <th scope="row">{{ $f->id }}</th>
-                    <td>{{ $f->nom }}</td>
+                    <th scope="row">{{ $etudiant->id }}</th>
+                    <td>{{ $etudiant->nom }}</td>
+                    <td>{{ $etudiant->prenom }}</td>
+                    <td>{{ $etudiant->filiere->nom }}</td>
                     <td>
-
-                        <a class="btn btn-primary btn-sm" href="{{ route('filieres.show', $f->id) }}"><box-icon
+                        <a class="btn btn-primary btn-sm" href="{{ route('etudiants.show', $etudiant->id) }}"><box-icon
                                 name='low-vision'></box-icon></a>
-                        <a class="btn btn-warning btn-sm" href="{{ route('filieres.edit', $f->id) }}"><box-icon
+                        <a class="btn btn-warning btn-sm" href="{{ route('etudiants.edit', $etudiant->id) }}"><box-icon
                                 type='solid' name='edit'></box-icon></a>
-                        <form action="{{ route('filieres.destroy', $f) }}" onsubmit="return deleteConfirmation()"
-                            method="post">
+                        <form action="{{ route('etudiants.destroy', $etudiant)}}" onsubmit="return deleteConfirmation()"  method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger btn-sm" href=""><box-icon
+                            <button class="btn btn-danger btn-sm"  href=""><box-icon
                                     name='trash-alt'></box-icon></button>
-
                         </form>
-
                     </td>
 
                 </tr>

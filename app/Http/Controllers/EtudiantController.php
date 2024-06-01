@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Etudiant;
+use App\Models\Filiere;
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
@@ -14,8 +15,8 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        $etudiants=Etudiant::all();
-        return view('etudiants.index',compact('etudiants'));
+        $etudiants = Etudiant::all();
+        return view('etudiants.index', compact('etudiants'));
     }
 
     /**
@@ -25,7 +26,8 @@ class EtudiantController extends Controller
      */
     public function create()
     {
-        return view('etudiants.create');
+        $filiers = Filiere::all();
+        return view('etudiants.create', compact('filiers'));
     }
 
     /**
@@ -48,9 +50,8 @@ class EtudiantController extends Controller
      */
     public function show($id)
     {
-        $etudiant=Etudiant::find($id);
-        return view('etudiants.show',compact('etudiant'));
-
+        $etudiant = Etudiant::find($id);
+        return view('etudiants.show', compact('etudiant'));
     }
 
     /**
@@ -61,8 +62,9 @@ class EtudiantController extends Controller
      */
     public function edit($id)
     {
-        $etudiant=Etudiant::find($id);
-        return view('etudiants.edit',compact('etudiant'));
+        $filiers = Filiere::all();
+        $etudiant = Etudiant::find($id);
+        return view('etudiants.edit', compact('etudiant','filiers'));
     }
 
     /**
@@ -74,10 +76,9 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $etudiant=Etudiant::find($id);
-$etudiant->update($request->all());
-return redirect()->route('etudiants.index');
-
+        $etudiant = Etudiant::find($id);
+        $etudiant->update($request->all());
+        return redirect()->route('etudiants.index');
     }
 
     /**
@@ -88,7 +89,7 @@ return redirect()->route('etudiants.index');
      */
     public function destroy($id)
     {
-        $etudiant=Etudiant::find($id);
+        $etudiant = Etudiant::find($id);
         $etudiant->delete();
         return redirect()->route('etudiants.index');
     }
