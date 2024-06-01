@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\FiliereController;
+use App\Http\Controllers\LivreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/template', function () {
+    return view('template');
+});
+
+Route::resource('filieres', FiliereController::class);
+Route::resource('livres', LivreController::class);
+Route::resource('etudiants', EtudiantController::class);
