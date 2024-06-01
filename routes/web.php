@@ -26,3 +26,4 @@ Route::get('/template', function () {
 Route::resource('filieres', FiliereController::class);
 Route::resource('livres', LivreController::class);
 Route::resource('etudiants', EtudiantController::class);
+
