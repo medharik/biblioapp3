@@ -32,7 +32,7 @@
                                 name='low-vision'></box-icon></a>
                         <a class="btn btn-warning btn-sm" href="{{ route('etudiants.edit', $etudiant->id) }}"><box-icon
                                 type='solid' name='edit'></box-icon></a>
-                        <form action="{{ route('etudiants.destroy', $etudiant)}}" onsubmit="return deleteConfirmation()"  method="post">
+                        <form action="{{ route('etudiants.destroy', $etudiant)}}" onsubmit="return deleteConfirmation()" class="d-inline" method="post">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm"  href=""><box-icon

@@ -30,7 +30,7 @@
                                 name='low-vision'></box-icon></a>
                         <a class="btn btn-warning btn-sm" href="{{ route('filieres.edit', $f->id) }}"><box-icon
                                 type='solid' name='edit'></box-icon></a>
-                        <form action="{{ route('filieres.destroy', $f) }}" onsubmit="return deleteConfirmation()"
+                        <form action="{{ route('filieres.destroy', $f) }}" class="d-inline" onsubmit="return deleteConfirmation()"
                             method="post">
                             @csrf
                             @method('DELETE')

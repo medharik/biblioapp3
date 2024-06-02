@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Etudiant;
 use App\Models\Filiere;
 use Illuminate\Http\Request;
 
