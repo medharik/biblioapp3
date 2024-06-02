@@ -1,7 +1,7 @@
 <!-- resources/views/etudiants/create.blade.php -->
-@extends('layouts.app')
+@extends('template')
 
-@section('content')
+@section('main')
 <div class="container">
     <h1>Ajouter un Étudiant</h1>
     <form action="{{ route('etudiants.store') }}" method="POST">

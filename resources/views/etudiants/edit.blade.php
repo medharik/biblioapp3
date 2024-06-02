@@ -1,7 +1,7 @@
-<!-- resources/views/etudiants/edit.blade.php -->
-@extends('layouts.app')
+<!-- resources/views/etudiants/create.blade.php -->
+@extends('template')
 
-@section('content')
+@section('main')
 <div class="container">
     <h1>Modifier Étudiant</h1>
     <form action="{{ route('etudiants.update', $etudiant->id) }}" method="POST">

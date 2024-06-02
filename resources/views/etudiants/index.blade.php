@@ -1,7 +1,7 @@
-<!-- resources/views/etudiants/index.blade.php -->
-@extends('layouts.app')
+<!-- resources/views/etudiants/create.blade.php -->
+@extends('template')
 
-@section('content')
+@section('main')
 <div class="container">
     <h1>Liste des Étudiants</h1>
     <a href="{{ route('etudiants.create') }}" class="btn btn-primary">Ajouter un étudiant</a>

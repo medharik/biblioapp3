@@ -1,7 +1,7 @@
-<!-- resources/views/etudiants/show.blade.php -->
-@extends('layouts.app')
+<!-- resources/views/etudiants/create.blade.php -->
+@extends('template')
 
-@section('content')
+@section('main')
 <div class="container">
     <h1>Détails de l'Étudiant</h1>
     <div class="card">
