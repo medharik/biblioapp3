@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\EtudiantApiController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\FiliereController;
 use App\Http\Controllers\LivreController;
@@ -26,4 +27,7 @@ Route::get('/template', function () {
 Route::resource('filieres', FiliereController::class);
 Route::resource('livres', LivreController::class);
 Route::resource('etudiants', EtudiantController::class);
-
+//route pour afficher la page emprunter
+Route::get('/emprunter', [EtudiantController::class,'emprunter'])->name('etudiants.emprunter');
+Route::post('/emprunter', [EtudiantController::class,'store_emprunter'])->name('etudiants.store_emprunter');
+Route::Apiresource('apietudiants', EtudiantApiController::class);

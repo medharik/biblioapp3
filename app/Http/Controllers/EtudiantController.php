@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Etudiant;
 use App\Models\Filiere;
+use App\Models\Livre;
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
@@ -91,5 +93,20 @@ class EtudiantController extends Controller
         $etudiant = Etudiant::find($id);
         $etudiant->delete();
         return redirect()->route('etudiants.index');
+    }
+
+    //les emprunts des etudiants
+
+    function emprunter()
+    {
+        $etudiants = Etudiant::all();
+        $livres = Livre::all();
+        return view('emprunts.emprunter', compact('etudiants', 'livres'));
+    }
+    function store_emprunter(Request $request)
+    {
+       $etudiant=Etudiant::find($request->etudiant_id);
+       $etudiant->livres()->attach($request->livre_id,['date_emprunt'=>now(),'date_retour'=>null]);
+        return redirect()->route('etudiants.show',$etudiant->id)->with('notice','emprunt effectue avec succes');
     }
 }

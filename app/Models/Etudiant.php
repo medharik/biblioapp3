@@ -31,5 +31,15 @@ class Etudiant extends Model
         ->withTimestamps()
         ;
     }
+    public function livresEmprunterPasRetourner()
+    {
+       return $this->livres()->wherePivot('date_retour',null)->get();
+        ;
+    }
+    public function livresEmprunterPasRetournerNot()
+    {
+       return $this->livres()->wherePivot('date_retour',null)->get();
+
+    }
 
 }

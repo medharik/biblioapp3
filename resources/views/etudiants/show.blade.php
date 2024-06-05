@@ -11,5 +11,14 @@
             <a href="{{ route('etudiants.index') }}" class="btn btn-secondary">Retour</a>
         </div>
     </div>
+    <h3>liste des livres empruntes </h3>
+    <ul>
+        @foreach ($etudiant->livres as $l)
+        <li>
+
+            {{$l->titre}} emprunte le : {{$l->pivot->date_emprunt}}
+        </li>
+        @endforeach
+    </ul>
 </div>
 @endsection

@@ -11,8 +11,12 @@
 @include('_menu');
 @if (session('notice'))
 
+@if (session('notice'))
 <div class="alert w-50 mx-auto alert-info" role="alert">
-@yield('notice')  </div>
+{{session('notice')}}
+</div>
+@endif
+
 @endif
 
 
