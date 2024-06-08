@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LivreRequest;
+use App\Http\Requests\LivreStoreRequest;
+use App\Http\Requests\LivreUpdateRequest;
 use App\Models\Livre;
 use Illuminate\Http\Request;
 
@@ -34,8 +37,9 @@ class LivreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LivreStoreRequest $request)
     {
+
         Livre::create($request->all());
         return redirect()->route('livres.index');
     }
@@ -72,7 +76,7 @@ class LivreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LivreUpdateRequest $request, $id)
     {
         $livre=Livre::find($id);
 $livre->update($request->all());

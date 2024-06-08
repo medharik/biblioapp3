@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EtudiantStore;
 use App\Models\Etudiant;
 use App\Models\Filiere;
 use App\Models\Livre;
@@ -37,9 +38,8 @@ class EtudiantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        Etudiant::create($request->all());
+    public function store(EtudiantStore $request)
+    {        Etudiant::create($request->all());
         return redirect()->route('etudiants.index');
     }
 

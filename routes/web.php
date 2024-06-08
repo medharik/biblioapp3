@@ -31,3 +31,7 @@ Route::resource('etudiants', EtudiantController::class);
 Route::get('/emprunter', [EtudiantController::class,'emprunter'])->name('etudiants.emprunter');
 Route::post('/emprunter', [EtudiantController::class,'store_emprunter'])->name('etudiants.store_emprunter');
 Route::Apiresource('apietudiants', EtudiantApiController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

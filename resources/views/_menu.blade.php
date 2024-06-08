@@ -18,9 +18,26 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('etudiants.emprunter')}}">Emprunter</a>
           </li>
-          {{-- <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li> --}}
+          @auth
+          <li class="nav-item">
+            <a href="{{route('logout')}}" class="nav-link">{{__('Logout')}}</a>
+            Bienvenue {{Auth::user()}}
+          </li>
+              @else
+              <li class="nav-item">
+                <a class="nav-link" >{{__('Login')}}</a>
+              </li>
+          @endauth
+          @guest
+
+          <li class="nav-item">
+              <a href="{{route('login')}}" class="nav-link" aria-disabled="true">{{__('Login')}} GUEST</a>
+            </li>
+            @else
+            <li class="nav-item">
+              <a href="{{route('logout')}}" class="nav-link" >{{__('Logout')}} GUEST</a>
+            </li>
+          @endguest
         </ul>
       </div>
     </div>

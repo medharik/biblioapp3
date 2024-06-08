@@ -6,8 +6,16 @@ Nouvelle Filiere
 @section('main')
 <form class="w-50 mx-auto shadow p-3 rounded" action="{{route('filieres.store')}}" method="post">
     @csrf
+    @if ($errors->any())
+<div class="alert alert-danger">
+
+    @foreach ($errors->all() as $e)
+    <li>{{$e}}</li>
+    @endforeach
+</div>
+    @endif
     <div class="mb-3">
-      <label for="nom" class="form-label">nom </label>
+      <label for="nom" class="form-label">{{__('name')}} </label>
       <input type="text" class="form-control" name="nom" id="nom" >
     </div>
 

@@ -6,10 +6,20 @@ Edition Livre : {{$livre->nom}}
 @section('main')
 <form class="w-50 mx-auto shadow p-3 rounded" action="{{route('livres.update',$livre->id)}}" method="post">
     @csrf
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $e)
+    <li>
+        {{$e}}
+    </li>
+        @endforeach
+    </div>
+    @endif
     @method('put')
     <div class="mb-3">
-      <label for="nom" class="form-label">nom </label>
-      <input type="text" value="{{$livre->nom}}" class="form-control" name="titre" id="titre" >
+        <input type="hidden" name="id"  value="{{$livre->id}}">
+      <label for="nom" class="form-label">Titre </label>
+      <input type="text" value="{{$livre->titre}}" class="form-control" name="titre" id="titre" >
     </div>
     <div class="mb-3">
         <label for="prix" class="form-label">prix </label>

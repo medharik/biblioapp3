@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FiliereStore;
 use App\Models\Filiere;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,7 @@ class FiliereController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FiliereStore $request)
     {
         Filiere::create($request->all());
         return redirect()->route('filieres.index')->with('notice','Ajout effectue avec succes');
