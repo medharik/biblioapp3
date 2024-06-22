@@ -5,5 +5,7 @@
     "Email Address":"Votre adresse email",
     "Remember Me":"Se rappeler de moi",
     "Login":"Connexion",
-    "name":"nom"
+    "name":"nom",
+    "title":"titre",
+    "price":"prix"
 }

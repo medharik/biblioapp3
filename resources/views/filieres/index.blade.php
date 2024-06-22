@@ -17,6 +17,7 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Nom</th>
+            <th scope="col">Image</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
@@ -25,6 +26,7 @@
         <tr>
             <th scope="row">{{ $f->id }}</th>
             <td>{{ $f->nom }}</td>
+            <td><img src="{{ asset($f->chemin)}}" alt="{{$f->nom}}" width="200"></td>
             <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-primary btn-sm" href="{{ route('filieres.show', $f->id) }}">C</a>

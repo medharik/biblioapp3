@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Livre extends Model
 {
     use HasFactory;
-    protected $fillable=['titre','prix'];
+    protected $fillable=['titre','prix','photo'];
     /**
      * The etudiants that belong to the Livre
      *

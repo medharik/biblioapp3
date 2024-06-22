@@ -6,13 +6,15 @@
     <h1>Ajouter un Étudiant</h1>
     <form action="{{ route('etudiants.store') }}" method="POST">
         @csrf
-@if ($errors->any())
-<div class="alert alert-danger" role="alert">
-    @foreach ($errors->all() as $e)
-<li>{{$e}}</li>
-    @endforeach
-  </div>
-@endif
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $e)
+                    <li>{{$e}}</li>
+            @endforeach
+        </div>
+
+        @endif
 
         <div class="form-group">
             <label for="nom">Nom:</label>

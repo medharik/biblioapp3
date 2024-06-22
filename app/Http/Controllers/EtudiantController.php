@@ -38,8 +38,15 @@ class EtudiantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EtudiantStore $request)
-    {        Etudiant::create($request->all());
+    public function store(Request $request)
+    {
+        $request->validate([
+
+            'nom'=>'required|min:2',
+            'prenom'=>'required',
+        ]);
+
+        Etudiant::create($request->all());
         return redirect()->route('etudiants.index');
     }
 

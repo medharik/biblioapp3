@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LivreRequest;
+use App\Http\Requests\LivreRequestStore;
 use App\Http\Requests\LivreStoreRequest;
 use App\Http\Requests\LivreUpdateRequest;
 use App\Models\Livre;
@@ -37,10 +38,16 @@ class LivreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LivreStoreRequest $request)
+    public function store(Request $request)
     {
 
-        Livre::create($request->all());
+
+$dossier="youssef";
+$nom=md5(time()).'.'.$request->photo->extension();
+$request->photo->move(public_path($dossier),$nom);
+$data=$request->all();
+$data['photo']=$dossier.'/'.$nom;
+        Livre::create($data);
         return redirect()->route('livres.index');
     }
 

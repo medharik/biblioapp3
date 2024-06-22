@@ -10,7 +10,7 @@ class Filiere extends Model
 {
     use HasFactory;
 
-    protected $fillable=["nom"];
+    protected $fillable=["nom","chemin"];
     /**
      * Get all of the etudiants for the Filiere
      *

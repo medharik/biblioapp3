@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
-class LivreStoreRequest extends FormRequest
+class LivreRequestStore extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,9 @@ class LivreStoreRequest extends FormRequest
      */
     public function authorize()
     {
+        if(isset(Auth::user()->role) && Auth::user()->role=="admin" )
         return true;
+    else return false;
     }
 
     /**
@@ -24,9 +27,9 @@ class LivreStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'titre'=>'required|unique:livres',
-            'prix'=>'numeric|min:10',
-            'photo'=>'required|mimes:jpeg,png,gif|max:2048'
+            'titre'=>'required|min:3|unique:livres',
+            'prix'=>'numeric|between:100,1000',
+            'photo'=>'required|max:2048|image'
         ];
     }
 }

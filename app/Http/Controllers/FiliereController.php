@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FiliereStore;
+use App\Http\Requests\FiliereStoreRequest;
 use App\Models\Filiere;
 use Illuminate\Http\Request;
 
@@ -35,9 +36,16 @@ class FiliereController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FiliereStore $request)
+    public function store(Request $request)
     {
-        Filiere::create($request->all());
+
+        $dossier="images_filieres";
+        $nom_image=sha1(time()).".".$request->chemin->extension();
+        $request->chemin->move(public_path($dossier),$nom_image);
+        $data=[];
+        $data['nom']=$request->nom;
+        $data['chemin']=$dossier."/".$nom_image;
+        Filiere::create($data);
         return redirect()->route('filieres.index')->with('notice','Ajout effectue avec succes');
     }
     /**

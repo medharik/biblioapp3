@@ -17,6 +17,7 @@ class CreateLivresTable extends Migration
             $table->id();
             $table->string("titre")->unique();
             $table->double("prix")->default(0);
+            $table->string("photo")->nullable();
             $table->timestamps();
         });
     }

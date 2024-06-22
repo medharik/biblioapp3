@@ -18,6 +18,7 @@
             <th scope="col">Id</th>
             <th scope="col">Titre</th>
             <th scope="col">Prix</th>
+            <th scope="col">Image</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
@@ -27,6 +28,7 @@
             <th scope="row">{{ $l->id }}</th>
             <td>{{ $l->titre }}</td>
             <td>{{ $l->prix }}</td>
+            <td><img src="{{asset($l->photo)}}" width="100"></td>
             <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-primary btn-sm" href="{{ route('livres.show', $l->id) }}">C</a>

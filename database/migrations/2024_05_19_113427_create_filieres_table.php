@@ -16,6 +16,7 @@ class CreateFilieresTable extends Migration
         Schema::create('filieres', function (Blueprint $table) {
             $table->id();
             $table->string("nom");
+            $table->string("chemin")->default("images/i.png");
             $table->timestamps();
         });
     }
