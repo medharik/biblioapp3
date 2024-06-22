@@ -40,8 +40,7 @@ class LivreController extends Controller
      */
     public function store(Request $request)
     {
-
-
+        
 $dossier="youssef";
 $nom=md5(time()).'.'.$request->photo->extension();
 $request->photo->move(public_path($dossier),$nom);

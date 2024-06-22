@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FiliereRequestStore2;
 use App\Http\Requests\FiliereStore;
 use App\Http\Requests\FiliereStoreRequest;
 use App\Models\Filiere;
@@ -36,7 +37,7 @@ class FiliereController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FiliereRequestStore2 $request)
     {
 
         $dossier="images_filieres";
